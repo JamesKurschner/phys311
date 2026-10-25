@@ -1,0 +1,3 @@
+# Lab 08 — Browser Physics Engine
+
+This lab ports the two-dimensional projectile and spring oscillator from Python to JavaScript. It implements `Vec2`, a camera with a flipped y axis, Euler-Cromer and velocity Verlet (plus ordinary Euler), and a clamped fixed-step animation loop. Open `index.html` through VS Code Live Server or an HTTP server (e.g. `python -m http.server 8000`) and use the scene, integrator, and DT selectors. Toggle variable timestep and inject 250 ms lag to investigate energy error. Press **Validate** to compare headless JavaScript results with the supplied Python reference. The live projectile uses 20 m/s at 50 degrees; validation uses the provided notebook's separate 25 m/s at 45 degrees case.
