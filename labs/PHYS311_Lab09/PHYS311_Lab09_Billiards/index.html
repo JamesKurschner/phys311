@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PHYS 311 · Lab 09 Simulation</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>LAB 9 — BILLIARDS SIMULATION</h1>
+  <p>Starts with 20 bouncing balls. Use the Scene selector to explore gravity and springs.</p>
+</header>
+
+<div class="wrap">
+  <div class="stage">
+    <canvas id="sim"></canvas>
+    <div class="note" id="note"></div>
+  </div>
+
+  <div>
+    <div class="panel">
+      <h2>Scene</h2>
+      <label for="scene">Simulation</label>
+      <select id="scene"></select>
+
+      <label for="ballCount">Billiards body count</label>
+      <select id="ballCount"><option>20</option><option>50</option><option>100</option><option>200</option><option>500</option></select>
+      <label for="restitution">Restitution e: <output id="restitutionLabel">1.00</output></label>
+      <input type="range" id="restitution" min="0" max="1" step="0.05" value="1">
+      <label for="integrator">Integrator</label>
+      <select id="integrator"></select>
+
+      <label for="broadphase">Broad phase</label>
+      <select id="broadphase">
+        <option value="brute">Brute force &mdash; O(N&sup2;)</option>
+        <option value="hash">Spatial hash &mdash; ~O(N)</option>
+      </select>
+
+      <label for="dt">Fixed timestep DT (s) <span id="dtLabel"></span></label>
+      <select id="dt">
+        <option value="0.01">1e-2 (coarse)</option>
+        <option value="0.004166666666666667" selected>1/240 (default)</option>
+        <option value="0.001">1e-3</option>
+        <option value="0.0002">2e-4 (fine)</option>
+      </select>
+
+      <div class="row">
+        <button id="playpause">Pause</button>
+        <button id="stepOnce" class="ghost">Step</button>
+        <button id="reset" class="ghost">Reset</button>
+      </div>
+
+      <div class="checks">
+        <label><input type="checkbox" id="trails" checked> trails</label>
+        <label><input type="checkbox" id="vectors"> v &amp; a</label>
+        <label><input type="checkbox" id="grid" checked> grid</label>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:14px">
+      <h2>Conservation HUD</h2>
+      <div id="hud"></div>
+    </div>
+
+    <div class="panel" style="margin-top:14px">
+      <h2>Headless validation</h2>
+      <p style="font-size:12px;color:#8892a6;margin:0">
+        Tests runnable headlessly with <code>node tests/validate.js</code>.
+        It needs no canvas &mdash; that is what the layering rule buys you.</p>
+      <div class="row"><button id="runTests">Run physics validation</button></div>
+      <pre class="tests" id="testOut"></pre>
+    </div>
+  </div>
+</div>
+
+<footer>Drag to pan &middot; scroll to zoom &middot; Physics 311, University of Tennessee</footer>
+<script type="module" src="main.js"></script>
+</body>
+</html>

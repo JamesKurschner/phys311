@@ -1,0 +1,9 @@
+LAB 9 — START HERE
+
+1. Extract this ZIP to its own folder (do not merge with Lab 8 or the reference folder).
+2. In VS Code choose File > Open Folder and select PHYS311_Lab09_Billiards.
+3. Right-click index.html in this exact folder > Open with Live Server.
+4. The page title should say LAB 9 — BILLIARDS SIMULATION and the scene dropdown should show 1 · Billiards / ball pit.
+5. Use the scene dropdown for Gravity and Springs.
+
+If the page shows a Lab 8 projectile, stop Live Server, close the old browser tab, and reopen the correct index.html.
