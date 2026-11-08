@@ -1,0 +1,22 @@
+{
+  "bodies": 120,
+  "steps": 500,
+  "brute_ms": 221.87280199999998,
+  "hash_ms": 43.673693000000014,
+  "brute_last_step_checks": 7140,
+  "hash_last_step_checks": 6,
+  "brute_contacts": 37,
+  "hash_contacts": 37,
+  "max_position_difference_m": 0
+}
+{
+  "bodies": 200,
+  "steps": 500,
+  "brute_ms": 755.2692029999998,
+  "hash_ms": 56.63390500000014,
+  "brute_last_step_checks": 19900,
+  "hash_last_step_checks": 27,
+  "brute_contacts": 122,
+  "hash_contacts": 121,
+  "max_position_difference_m": 2.544494106194804
+}

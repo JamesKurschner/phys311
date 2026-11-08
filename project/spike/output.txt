@@ -1,0 +1,5 @@
+{"m1":1,"m2":1,"u1":2,"u2":0,"e":0.6,"didResolve":true,"expected":0.64,"measured":0.6399999999999997,"error":-3.3306690738754696e-16,"dp":0,"passed":true}
+{"m1":1,"m2":1,"u1":2,"u2":0,"e":1,"didResolve":true,"expected":0,"measured":0,"error":0,"dp":0,"passed":true}
+{"m1":2,"m2":1,"u1":3,"u2":-1,"e":0.3,"didResolve":true,"expected":4.8533333333333335,"measured":4.853333333333333,"error":-8.881784197001252e-16,"dp":0,"passed":true}
+{"m1":1,"m2":3,"u1":2,"u2":-1,"e":0,"didResolve":true,"expected":3.375,"measured":3.375,"error":0,"dp":0,"passed":true}
+RESULT: 4/4 checks passed

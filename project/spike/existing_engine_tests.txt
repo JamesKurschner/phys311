@@ -1,0 +1,52 @@
+==============================================================================
+WEEK 9 ENGINE -- HEADLESS VALIDATION
+==============================================================================
+
+[1] Projectile range, v0 = 25 m/s at 45 deg, Verlet, dt = 1e-4
+    numerical = 63.710499 m   exact = 63.710499 m
+PASS  projectile range matches theory                |err| = 4.46e-9 m
+
+[2] Spring, 10 periods, dt = 0.01: max |dE|/E0
+    (a projectile cannot separate these -- see Week 2 section 5.5)
+    Euler (explicit)                       1.180e+0
+    Euler-Cromer (symplectic)              2.035e-1
+    Velocity Verlet (symplectic, 2nd order) 5.055e-3
+PASS  Verlet beats Euler-Cromer beats Euler          1.18e+0 > 2.04e-1 > 5.05e-3
+
+[3] Verlet convergence on the spring chain (error ratio should be ~4)
+    dt=4e-3 err=3.991e-5
+    dt=2e-3 err=9.973e-6  ratio=4.00
+    dt=1e-3 err=2.493e-6  ratio=4.00
+PASS  Verlet is second order                         ratio = 4.001 (expect 4.00)
+
+[4] Isolated collisions (walls off): |dp|/|p0| for several e
+    e = 1.0   |dp|/|p0| = 1.47e-16   KE kept = 100.00 %   collisions = 10
+    e = 0.9   |dp|/|p0| = 0.00e+0   KE kept = 86.70 %   collisions = 9
+    e = 0.5   |dp|/|p0| = 0.00e+0   KE kept = 58.80 %   collisions = 12
+    e = 0.0   |dp|/|p0| = 0.00e+0   KE kept = 45.74 %   collisions = 16
+PASS  momentum conserved to machine precision        worst = 1.47e-16
+
+[5] Box with walls, e = 1: energy kept, momentum NOT
+    dE/E0 = 0.000000 %   |dp|/|p0| = 1.36e+0
+    wall hits = 31   pair collisions = 21
+PASS  elastic walls do no work                       dE/E0 = 2.00e-16
+
+[6] Figure-eight, 4 periods, Verlet, dt = 1e-4
+    dE/E0 = -6.262e-14   |p| = 4.00e-14
+    dL/L0 = 1.370e-14   max return error = 3.105e-5
+PASS  figure-eight closes and conserves              dE = -6.26e-14, return = 3.11e-5
+
+[7] Brute force vs spatial hash: same physics, different cost
+    brute: 7140 checks/step, 61 collisions
+    hash : 5 checks/step, 61 collisions
+    max position difference = 0.000e+0
+PASS  broad phase is physics-neutral                 max |dr| = 0.00e+0
+PASS  hash does fewer checks than brute              5 vs 7140
+
+[8] Sticky-pair guard: overlapping but separating pair
+    impulse applied = false (must be false: they are separating)
+PASS  separating pair is not re-resolved             guard works
+
+==============================================================================
+9 / 9 checks passed
+==============================================================================
