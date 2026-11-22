@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Conservative elastic collision",
+    "expected": "|energy drift| < 0.3%; momentum error < 1e-9",
+    "measured": {
+      "collided": true,
+      "initialEnergy": 2.5,
+      "finalEnergy": 2.5,
+      "energyDriftPercent": 0,
+      "momentumError": 0,
+      "omegaA": 0,
+      "omegaB": 0
+    },
+    "pass": true
+  },
+  {
+    "name": "Tangential friction / spin",
+    "expected": "omegaA and omegaB = -2/3 rad/s ± 1e-5; momentum error < 1e-9; energy does not increase",
+    "measured": {
+      "collided": true,
+      "initialEnergy": 2.5,
+      "finalEnergy": 2.4166666666666665,
+      "energyDriftPercent": -3.3333333333333393,
+      "momentumError": 0,
+      "omegaA": -0.6666666666666666,
+      "omegaB": -0.6666666666666666
+    },
+    "pass": true
+  }
+]
